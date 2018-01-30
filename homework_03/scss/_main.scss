@@ -80,6 +80,7 @@ td {
 th {
     background: $table-titleBg;
     text-indent: 20px;
+    text-transform: uppercase;
 }
 
 th:nth-child(2) {

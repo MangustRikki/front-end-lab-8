@@ -67,7 +67,8 @@ td {
 
 th {
   background: #e0e0e0;
-  text-indent: 20px; }
+  text-indent: 20px;
+  text-transform: uppercase; }
 
 th:nth-child(2) {
   border-left: 1px solid #fff;
