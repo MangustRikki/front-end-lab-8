@@ -1,0 +1,43 @@
+$wrap-bg: #dcbb9a;
+
+$content-bg: #fff;
+
+$text-color: #000;
+
+$title-color: #893c00;
+
+$img-border: $content-bg;
+
+$img-outline: $title-color;
+
+$brief-bg: #fadcba;
+
+$link-color: #3d70a1;
+
+$table-titleBg: #e0e0e0;
+
+$table-border-color: $table-titleBg;
+
+$table-head-border: #fff;
+
+$table-tdBg: #fff;
+
+$form-text-color: #808080;
+
+$btn-bg: $content-bg;
+
+$btn-text-color: #3d70a1;
+
+$btn-border-color: #3d70a1;
+
+@mixin title {
+    text-align: center;
+}
+
+@mixin brief {
+    width: 45%;
+    float: left;
+    margin: 0 15px 15px 0;
+    padding: 20px;
+    background: $brief-bg;
+}

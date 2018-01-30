@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: $wrap-bg;
+    color: $text-color;
+}
+
+#content {
+    max-width: 1000px;
+    margin: 10px 8% 10px 18%;
+    padding: 20px 20px 40px;
+    background-color: $content-bg;
+}
+
+h1 {
+    @include title;
+}
+
+h1, h2 {
+    color: $title-color;
+}
+
+h1, h2, p {
+    margin-bottom: 20px;
+}
+
+p {
+    padding-right: 10px;
+}
+
+.img-left {
+    float: left;
+    margin-right: 20px;
+}
+
+.img-right {
+    float: right;
+    margin-left: 20px;
+}
+
+img {
+    margin-bottom: 20px;
+    border: 2px solid $img-border;
+    outline: 2px solid $img-outline;
+}
+
+.brief {
+    @include brief;
+    box-sizing: border-box;
+}
+
+a {
+    color: $link-color;
+}
+
+caption {
+    text-align: right;
+    color: #000;
+}
+
+table {
+    margin-bottom: 60px;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+th, td {
+    height: 40px;
+}
+
+td {
+    border-bottom: 1px solid $table-border-color;
+    text-indent: 22px;
+    background: $table-tdBg;
+}
+
+th {
+    background: $table-titleBg;
+    text-indent: 20px;
+}
+
+th:nth-child(2) {
+    border-left: 1px solid $table-head-border;
+    border-right: 1px solid $table-head-border;
+}
+
+.contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+        .user-email,
+        .user-rate,
+        .user-response,
+        input,
+        textarea  {
+            width: 100%;
+        }
+
+        .user-firstName,
+        .user-lastName {
+            width: 49.2%;   
+        }
+
+        p {
+            margin: 10px 0 15px;
+            padding: 0;
+            color: $form-text-color;
+            text-transform: uppercase;
+        }
+
+        input {
+            height: 25px;
+        }
+
+        input,
+        textarea {
+            padding-left: 5px;
+        }
+
+       .user-response-textarea {
+           height: 160px;
+           margin-bottom: 25px;
+       }
+
+       .btn-submit {
+           width: 24%;
+           padding: 12px 0;
+           font-size: 24px;
+           text-transform: uppercase;
+           color: $btn-text-color;
+           background: $btn-bg;
+           border: 1px solid $btn-border-color;
+       }
+
+}
