@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.wrap {
+    min-width: 100%;
+    padding-left: 13.7%;
+    padding-right: 13.7%;
+}
+
+.content {
+    max-width: 1170px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    padding-top: 35px;
+    padding-bottom: 8.5%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page-header {
+    color: #fff;
+    background: url("../img/apples.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.header {
+    width: 100%;
+    margin-bottom: 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.nav-menu {
+    width: 34%;
+    height: 100%;
+}
+
+.menu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-item {
+    height: 100%;
+    list-style: none;
+    padding: 5px 10px 10px;
+}
+
+.menu-link {
+    height: 100%;
+    color: #fff;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.menu-link--aktive {
+    border-bottom: 2px solid #b7c8d9;
+}
+
+.header-title {
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    margin-bottom: 1%;
+}
+
+.bigAmpersand {
+    font-size: 3.5rem;
+    font-weight: 400;
+}
+
+.header-title::after {
+    position: relative;
+    content: "TM";
+    font-size: 0.6rem;
+    letter-spacing: normal;
+    top: -17px;
+}
+
+.header-text {
+    margin-bottom: 15.4%;
+    text-transform: capitalize;
+    font-size: 10px;
+}
+
+.header-btn {
+    width: 19.7%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #fff;
+}
+
+.about {
+    justify-content: space-between;
+    padding-top: 10%;
+    padding-bottom: 11%;
+}
+
+.about__title {
+    width: 39.7%;
+    font-size: 14px;
+    line-height: 1.5rem;
+    font-weight: normal;
+}
+
+.about__text {
+    width: 48.2%;
+    font-size: 10px;
+}
+
+.page-third {
+    background: #f3f3f3;
+}
+
+.portfolio-block {
+    flex-direction: column;
+}
+
+.portfolio-title {
+    font-weight: normal;
+    margin-bottom: 100px;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns:  31% 31% 31%;
+    grid-template-rows: repeat(2, 300px);
+    grid-gap: 32px;
+}
+
+.portfolio figure:nth-child(1) {
+    grid-column: 1 / 3;
+}
+
+.portfolio figure:nth-child(4) {
+    grid-column: 2 / 4;
+}
+
+.portfolio img {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+.portfolio img::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+figure {
+    position: relative;
+}
+
+figcaption {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+figcaption p:first-child {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 52px;
+}
+
+figcaption input {
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: #343638;
+    width: 100%;
+    padding: 5px;
+}
+
+figcaption p:last-child {
+    position: absolute;
+    top: 260px;
+    left: 35px;
+    color: #fff;
+    text-align: left;
+    height: 25px;
+    font-size: 14px;
+}
+
+.place {
+    font-weight: 700;
+}
