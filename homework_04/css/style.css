@@ -133,6 +133,7 @@ body {
 
 .page-third {
     background: #f3f3f3;
+    padding-bottom: 17%;
 }
 
 .portfolio-block {
@@ -149,6 +150,7 @@ body {
     grid-template-columns:  31% 31% 31%;
     grid-template-rows: repeat(2, 300px);
     grid-gap: 32px;
+    margin-bottom: 70px;
 }
 
 .portfolio figure:nth-child(1) {
@@ -165,7 +167,7 @@ body {
     height: 300px;
 }
 
-.portfolio img::before {
+.portfolio figure::after {
     content: "";
     display: block;
     position: absolute;
@@ -173,7 +175,7 @@ body {
     right: 0;
     left: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.3);
     z-index: 10;
 }
 
@@ -187,6 +189,7 @@ figcaption {
     right: 0;
     left: 0;
     bottom: 0;
+    z-index: 20;
 }
 
 figcaption p:first-child {
@@ -216,4 +219,100 @@ figcaption p:last-child {
 
 .place {
     font-weight: 700;
+}
+
+.form-wrap {
+    width: 100%;
+    padding: 70px 0;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+}
+
+.form-wrap-text {
+    margin-right: 50px;
+    line-height: 60px;
+}
+
+.contact-form {
+    width: 51.3%;
+    height: 60px;
+    font-size: 0;
+}
+
+#input-email {
+    width: 71.7%;
+    height: 100%;
+    padding-left: 30px;
+    border: 1px solid #000;
+    background: #f4f4f4;
+}
+
+.btn-submit {
+    width: 28.3%;
+    height: 100%;
+    color: #fff;
+    /* margin-left: -5px; */
+    border: 1px solid #000;
+    background: #343638;
+}
+
+.contacts {
+    padding-top: 12.8%;
+    padding-bottom: 11.1%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1.5fr;
+    grid-column-gap: 100px;
+    border-bottom: 2px solid #e8e8e8;
+}
+
+.article__title {
+    margin-bottom: 26px;
+    font-size: 12px;
+}
+
+.article__text {
+    font-size: 8px;
+    line-height: 1.8;
+}
+
+.article__text--margin {
+    margin-bottom: 5px;
+}
+
+.article__text--grey {
+    color: #e8e8e8;
+    margin-top: 17px;
+}
+
+.contact-form--contacts {
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.contact-form--contacts input {
+    padding-left: 20px;
+}
+
+.contact-form--contacts input,
+.contact-form--contacts button {
+    font-size: 10px;
+}
+
+.copyright {
+    font-size: 10px;
+    color: #e9e9e9;
+    line-height: 37px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.nav-menu--footer .menu-link {
+    color: #000;
+    font-size: 10px;
 }
