@@ -12,9 +12,8 @@ while (!isNumeric(amntUsd)) {
     amntUsd = prompt("Enter USD amnt", "");
 }
 
-console.log(`${amntEuro} euros are equal , 52 dollars are equal 1404 UAH, one euro is equal 1.074 dollars`)
+console.log(`${amntEuro} euros are equal ${(euroRate * amntEuro).toFixed(2)} UAH, ${amntUsd} dollars are equal ${(usdRate * amntUsd).toFixed(2)} UAH, one euro is equal ${(euroRate/usdRate).toFixed(4)} dollars`);
 
 function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
-

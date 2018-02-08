@@ -17,7 +17,7 @@ if (!isNumeric(a) || !isNumeric(b) || !isNumeric(c)) {
       console.log('Incorrect data');
     }
     else {
-    sqr = Math.sqrt(temporary).toFixed(2);
+    sqr = parseFloat(Math.sqrt(temporary).toFixed(2));
       if (a * a == b * b + c * c || b * b == a * a + c * c || c * c == a * a + b * b) {
       console.log('Type of triangle is Right triangle and square is ' + sqr);
     } else if ((a == b) == c) {
