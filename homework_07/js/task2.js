@@ -20,7 +20,7 @@ while (newGame) {
 
         game.guess = prompt(` Enter a number from ${game.min} to ${game.max} \n Attempts left: ${game.attempts} \n Total prize: ${game.winPrize}$ \n Possibly prize on current attempt: ${game.prize}$`, "");
 
-        if (game.guess == game.secretNum) {
+        if ((game.guess^0) == game.secretNum && !isNaN(parseFloat(game.guess))) {
             let contGame = confirm("Do you want to continue the game?");
             if (contGame) {
                 game.attempts = 3;
