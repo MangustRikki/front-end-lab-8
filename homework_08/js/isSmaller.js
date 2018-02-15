@@ -9,5 +9,3 @@ function isSmaller(a, b) {
 function isBigger(a, b) {
     return a > b;
 }
-
-// console.log(isSmaller(5, 6));

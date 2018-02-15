@@ -3,5 +3,3 @@ function getClosestToZero() {
            return (Math.abs(curr) < Math.abs(prev) ? curr : prev );
         });
     }
-
-    console.log(getClosestToZero(-2, -5, 2, 4));
