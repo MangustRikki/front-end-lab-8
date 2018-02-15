@@ -1,6 +1,6 @@
-function getClosestToZero(...arguments) {
+function getClosestToZero() {
      return Array.from(arguments).reduce((prev, curr) => {
-           return (Math.abs(curr - 0) < Math.abs(prev - 0) ? curr : prev );
+           return (Math.abs(curr) < Math.abs(prev) ? curr : prev );
         });
     }
 
