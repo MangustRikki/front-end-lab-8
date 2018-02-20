@@ -1,13 +1,9 @@
 function getTransformedArray(arr, foo) {
-    let newArr = [];
-    newArr.push(forEach(arr, foo));
+    const newArr = [];
+    forEach(arr, elem => newArr.push(increase(elem)));
     return newArr;
 }
 
-let array = [1, 2, 3, 4];
-
 function increase(elem) {
-    return elem + 1;
+   return elem += 1;
 }
-
-console.log(getTransformedArray(array, increase));
