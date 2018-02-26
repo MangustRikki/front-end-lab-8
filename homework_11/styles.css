@@ -1,0 +1,27 @@
+/* Your styles goes here */
+.material-icons.md-dark { 
+    color: rgb(219, 123, 12); 
+}
+
+.material-icons.md-dark.gray {
+    color: gray;
+}
+
+li {
+    list-style: none;
+    /* display: flex;
+    align-items: center; */
+    margin-bottom: 5px;
+}
+
+li:last-child {
+    margin-bottom: 0;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+.material-icons {
+    margin-right: 5px;
+}
