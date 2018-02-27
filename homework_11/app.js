@@ -50,46 +50,48 @@ function makeClone(elem, bool) {
     return elem.cloneNode(bool);
 }
 
-function addListiners(array, foo, event) {
-    array.forEach((item) => {
-        item.addEventListener(event, foo);
-    });
-}
-
 let allList = createTree(folderList, item, structure);
+
+allList.addEventListener('click', showHide);
 
 rootNode.appendChild(allList);
 
 let arrayLi = Array.from(document.querySelectorAll('li'));
 
-addListiners(arrayLi, showHide, 'click');
-
 function showHide(e) {
+    let target = e.target.lastElementChild;
+    console.log(target);
+    if (target.getAttribute('hidden') === 'true') {
+    target.removeAttribute('hidden');
+   }
+    else {
+        target.setAttribute('hidden', 'true');
+    }
     
-    let target = this.lastElementChild;
-    let target2 = this.firstElementChild;
-    console.log(this);
-    if (target) {    
-//    console.log(target);
-    if(target.getAttribute('hidden') === 'true') {
+//     let target = this.lastElementChild;
+//     let target2 = this.firstElementChild;
+//     console.log(this);
+//     if (target) {    
+// //    console.log(target);
+//     if(target.getAttribute('hidden') === 'true') {
        
-        target.removeAttribute('hidden');
+//         target.removeAttribute('hidden');
        
-        if (this.classList.contains('folder')) {
-            this.classList.add('open');
-        }
+//         if (this.classList.contains('folder')) {
+//             this.classList.add('open');
+//         }
        
-    }
-     else if (this.classList.contains('open')) {
-         console.log('lalal');
-        this.lastElementChild.setAttribute('hidden', 'true');
-        this.classList.remove('open');
-     }
+//     }
+//      else if (this.classList.contains('open')) {
+//          console.log('lalal');
+//         this.lastElementChild.setAttribute('hidden', 'true');
+//         this.classList.remove('open');
+//      }
         
-    }
+//     }
 
-    if (target2.className === "material-icons md-dark") {
-        target2.textContent = "folder_open";
-    }
+//     if (target2.className === "material-icons md-dark") {
+//         target2.textContent = "folder_open";
+//     }
 
 }
