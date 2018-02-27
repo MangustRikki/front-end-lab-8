@@ -11,7 +11,7 @@ let fileImg = makeClone(folderImg, false);
 
 fileImg.classList.add('gray');
 fileImg.textContent = "insert_drive_file";
-
+folderImg.classList.add('folder-img');
 
 function createTree(parent, child, array) {
     array.forEach((item) => {
@@ -58,12 +58,12 @@ rootNode.appendChild(allList);
 function showHide(e) {
     let target = e.target.closest('.folder').children[1];
     let targetImg = e.target.closest('.folder').children[0];
-    console.log(targetImg);
+    
     if (target) {
 
         let isHidden = target.getAttribute('hidden');
-        let isFolder = e.target.classList.contains('folder');
-        
+        let isFolder = e.target.classList.contains('folder') || e.target.classList.contains('folder-img');
+
         if (isHidden) {
             target.removeAttribute('hidden');
             targetImg.textContent = 'folder_open';
@@ -72,31 +72,4 @@ function showHide(e) {
             targetImg.textContent = 'folder';
         }
     }
-
-    //     let target = this.lastElementChild;
-    //     let target2 = this.firstElementChild;
-    //     console.log(this);
-    //     if (target) {    
-    // //    console.log(target);
-    //     if(target.getAttribute('hidden') === 'true') {
-
-    //         target.removeAttribute('hidden');
-
-    //         if (this.classList.contains('folder')) {
-    //             this.classList.add('open');
-    //         }
-
-    //     }
-    //      else if (this.classList.contains('open')) {
-    //          console.log('lalal');
-    //         this.lastElementChild.setAttribute('hidden', 'true');
-    //         this.classList.remove('open');
-    //      }
-
-    //     }
-
-    //     if (target2.className === "material-icons md-dark") {
-    //         target2.textContent = "folder_open";
-    //     }
-
 }
