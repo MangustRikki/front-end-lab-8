@@ -56,18 +56,21 @@ allList.addEventListener('click', showHide);
 
 rootNode.appendChild(allList);
 
-let arrayLi = Array.from(document.querySelectorAll('li'));
-
 function showHide(e) {
-    let target = e.target.lastElementChild;
-    console.log(target);
-    if (target.getAttribute('hidden') === 'true') {
-    target.removeAttribute('hidden');
-   }
-    else {
-        target.setAttribute('hidden', 'true');
+    let target = e.target.closest('.folder').children[1];
+    console.log(e.target);
+    if(target) {
+
+    let isHidden = target.getAttribute('hidden');
+    let isFolder = e.target.classList.contains('folder');
+        console.log(isFolder);
+    if (isHidden) {
+      target.removeAttribute('hidden');
+    } else if (isFolder ) {
+      target.setAttribute('hidden', 'true');
+    } 
     }
-    
+
 //     let target = this.lastElementChild;
 //     let target2 = this.firstElementChild;
 //     console.log(this);
