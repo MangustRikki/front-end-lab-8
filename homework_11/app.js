@@ -9,29 +9,34 @@ let folderImg = document.createElement('i');
 
 let fileImg = makeClone(folderImg, false);
 
-fileImg.classList.add('gray');
-fileImg.textContent = "insert_drive_file";
-    console.log(fileImg);
+    fileImg.classList.add('gray');
+    fileImg.textContent = "insert_drive_file";
 
-function createList(parent, child, array) {
+
+function createTree(parent, child, array) {
     array.forEach((item) => {
 
         let cloneChild = makeClone(child, false);
-
-        cloneChild.textContent = item.title;
-
-        if(item.children) {
-            
-            let cloneParent = makeClone(parent, false);
+            cloneChild.textContent = item.title;
+        let cloneParent = makeClone(parent, false);
             cloneParent.setAttribute('hidden', 'true');
-            createList(cloneParent, child, item.children);
-            cloneChild.appendChild(cloneParent);
-        }        
+            
 
-        if(item.folder) {
+        if(item.folder) { 
             cloneChild.prepend(makeClone(folderImg, true));
+            cloneChild.classList.add('folder');
+            if (item.children) {
+            createTree(cloneParent, child, item.children);
+            cloneChild.appendChild(cloneParent);
+            }
+            else {
+
+                let emptyFolder = document.createElement('p');
+                    emptyFolder.setAttribute('hidden', 'true');
+                    emptyFolder.textContent = "Folder is empty";
+                cloneChild.appendChild(emptyFolder);
+            }
         } else {
-            console.log(item.folder);
             cloneChild.prepend(makeClone(fileImg, true));
         }
 
@@ -51,7 +56,7 @@ function addListiners(array, foo, event) {
     });
 }
 
-let allList = createList(folderList, item, structure);
+let allList = createTree(folderList, item, structure);
 
 rootNode.appendChild(allList);
 
@@ -60,6 +65,31 @@ let arrayLi = Array.from(document.querySelectorAll('li'));
 addListiners(arrayLi, showHide, 'click');
 
 function showHide(e) {
-    console.log(Array.from(e.target.children));
- Array.from(e.target.children).forEach((item) => item.removeAttribute('hidden'));
+    
+    let target = this.lastElementChild;
+    let target2 = this.firstElementChild;
+    console.log(this);
+    if (target) {    
+//    console.log(target);
+    if(target.getAttribute('hidden') === 'true') {
+       
+        target.removeAttribute('hidden');
+       
+        if (this.classList.contains('folder')) {
+            this.classList.add('open');
+        }
+       
+    }
+     else if (this.classList.contains('open')) {
+         console.log('lalal');
+        this.lastElementChild.setAttribute('hidden', 'true');
+        this.classList.remove('open');
+     }
+        
+    }
+
+    if (target2.className === "material-icons md-dark") {
+        target2.textContent = "folder_open";
+    }
+
 }
