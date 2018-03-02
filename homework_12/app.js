@@ -57,9 +57,8 @@ function tankDetails() {
 }
 
 function goBack() {
-  console.log(this);
-  window.history.go();
-  location.hash = '';
+    root.innerHTML = "";
+    root.append(tankPreviewTitle, creatTumb(tanks));
 }
 
 function createDetails(elem) {
