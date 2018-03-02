@@ -25,7 +25,7 @@ function creatTumb(array) {
         
         flagImgClone.setAttribute('src', elem.country_image);
         flagImgClone.setAttribute('title', elem.country);
-        tankTextClone.innerHTML = `${elem.level} <span title=${elem.model}>${elem.model}</span>`;
+        tankTextClone.innerHTML = `${elem.level} <span title="${elem.model}">${elem.model}</span>`;
         tankImageClone.setAttribute('src', elem.preview);
 
         tankTextClone.prepend(flagImgClone, " ");
