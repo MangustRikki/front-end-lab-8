@@ -3,7 +3,7 @@ const root = document.getElementById('root'),
       tankPreviewTitle.textContent = "Most popular tanks";
 
 function creatTumb(array) {
-    location.hash = 'Tank-preview';
+    location.hash = '';
 
     let tankThumbnail = document.createElement('div');
         tankThumbnail.classList.add('tank-thumbnail');
@@ -55,25 +55,33 @@ function tankDetails() {
     
 }
 
+function goBack() {
+  console.log(this);
+  window.history.go();
+  location.hash = '';
+}
+
 function createDetails(elem) {
-    return `<h2> <img src = ${country_image}> <span class="cap-letter"${this.model}</span> (level ${this.level}) </h2> 
+    return `<h2> <img src = ${this.country_image}> <span class="cap-letter">${this.model}</span> (level ${this.level}) </h2> 
             <div class="main-content">
                 <div class = "left-col">
                     <h3>Preview</h3>
                     <img src = ${this.preview}>
-                    <p onclick = goBack>Back to list view</p>
+                    <p class="home-link" onclick = goBack()>Back to list view</p>
                 </div>
                 <div class = "right-col">
-                    
+                    <h3>Characteristic</h3>
+                    <table>
+                    <tr><td>damage</td><td>${this.details.damage}</td></tr>
+                    <tr><td>breoning</td><td>${this.details.breoning}</td></tr>
+                    <tr><td>attack_speed</td><td>${this.details.attack_speed}</td></tr>
+                    <tr><td>time_of_targeting</td><td>${this.details.time_of_targeting}</td></tr>
+                    <tr><td>ammunition</td><td>${this.details.ammunition}</td></tr>
+                    </table>
                 </div>
-            </div>
-    `;
+            </div>`;
 }
 
-function goBack() {
-    window.history.go();
-    location.hash = 'Tank-preview';
-}
 
 function createElem(elem) {
     return document.createElement(elem);
