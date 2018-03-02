@@ -1,1 +1,42 @@
-/* Your styles goes here */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-width: 100%;
+    height: 100%;
+    background: #1C1C1F;
+}
+
+h1 {
+    color: #A19E86;
+    text-transform: uppercase;
+}
+
+p {
+    color: #D7D2B7;
+    text-transform: uppercase;
+}
+
+.preview-page {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.tank-thumbnail p {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+.tank-thumbnail > img {
+    width: 200px;
+}
+
+.tank-thumbnail:hover {
+    background: #2C2C2C;
+}
+
