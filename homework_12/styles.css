@@ -9,8 +9,11 @@ body {
     background: #1C1C1F;
 }
 
-h1 {
+h1, h2 {
     color: #A19E86;
+}
+
+h1 {
     text-transform: uppercase;
 }
 

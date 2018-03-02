@@ -3,6 +3,8 @@ const root = document.getElementById('root'),
       tankPreviewTitle.textContent = "Most popular tanks";
 
 function creatTumb(array) {
+    location.hash = 'Tank-preview';
+
     let tankThumbnail = document.createElement('div');
         tankThumbnail.classList.add('tank-thumbnail');
     const tankPreviewPage = createElem('div');        
@@ -43,10 +45,35 @@ root.append(tankPreviewTitle, creatTumb(tanks));
 window.onhashchange = tankDetails;
 
 function tankDetails() {
-    let tankModel = location.hash;
+    let tankModel = location.hash.slice(1);
+
+    tanks.forEach(elem => {
+        if (elem.model === tankModel) {
+            root.innerHTML = createDetails.call(elem);
+        }
+    });
+    
 }
 
-location.hash = 'Tank-preview';
+function createDetails(elem) {
+    return `<h2> <img src = ${country_image}> <span class="cap-letter"${this.model}</span> (level ${this.level}) </h2> 
+            <div class="main-content">
+                <div class = "left-col">
+                    <h3>Preview</h3>
+                    <img src = ${this.preview}>
+                    <p onclick = goBack>Back to list view</p>
+                </div>
+                <div class = "right-col">
+                    
+                </div>
+            </div>
+    `;
+}
+
+function goBack() {
+    window.history.go();
+    location.hash = 'Tank-preview';
+}
 
 function createElem(elem) {
     return document.createElement(elem);
