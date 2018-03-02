@@ -24,7 +24,8 @@ function creatTumb(array) {
             tankThumbnailClone = makeClone(tankThumbnail);
         
         flagImgClone.setAttribute('src', elem.country_image);
-        tankTextClone.textContent = elem.level + " " + elem.model;
+        flagImgClone.setAttribute('title', elem.country);
+        tankTextClone.innerHTML = `${elem.level} <span title=${elem.model}>${elem.model}</span>`;
         tankImageClone.setAttribute('src', elem.preview);
 
         tankTextClone.prepend(flagImgClone, " ");
@@ -62,7 +63,7 @@ function goBack() {
 }
 
 function createDetails(elem) {
-    return `<h2> <img src = ${this.country_image}> <span class="cap-letter">${this.model}</span> (level ${this.level}) </h2> 
+    return `<h2> <img src = ${this.country_image} title=${this.country}> <span class="cap-letter">${this.model}</span> (level ${this.level}) </h2> 
             <div class="main-content">
                 <div class = "left-col">
                     <h3>Preview</h3>

@@ -9,6 +9,10 @@ body {
     background: #1C1C1F;
 }
 
+#root {
+    padding: 20px;
+}
+
 h1, h2, h3 {
     color: #A19E86;
 }
