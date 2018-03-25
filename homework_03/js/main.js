@@ -2,26 +2,35 @@ function Company(name, owner, maxCount) {
     this.name = name;
     this.owner = owner;
     this.maxCount = maxCount;
-    this._listEmployees = [];
+    let _listEmployees = [],
+        companyCreateDate = new Date(),
+        _logs = `${this.name} company was created in ${companyCreateDate}\n`;
+
 
     this.findLowestSalary = function() {
-        let hasLowestSalary = this._listEmployees.reduce((prev, cur) => cur.salary < prev.salary ? cur : prev);
-        return this._listEmployees.indexOf(hasLowestSalary);
+        let hasLowestSalary = _listEmployees.reduce((prev, cur) => cur.salary < prev.salary ? cur : prev);
+        return _listEmployees.indexOf(hasLowestSalary);
     };
 
     this.addNewEmployee = function(employee) {
         if (!(employee instanceof Employee)) {
             console.log('Please try to add Employee instance');
-        } else if (this._listEmployees.length < this.maxCount) {
-            this._listEmployees.push(employee);
         } else {
-            this._listEmployees.splice(this.findLowestSalary(), 1, employee);
+            if (_listEmployees.length < this.maxCount) {
+                _listEmployees.push(employee);
+            } else {
+                _listEmployees.splice(this.findLowestSalary(), 1, employee);
+            }
+            employee._startWorking = new Date();
+            _logs += `${employee.name} start working for ${this.name} in ${employee._startWorking}\n`;
         }
     };
 
     this.removeEmployee = function(id) {
         if (id <= this.maxCount && id > 0) {
-            this._listEmployees.splice(id, 1);
+            let firedEmployee = _listEmployees.splice(id, 1);
+            firedEmployee._endWorking = new Date();
+            _logs += `${firedEmployee.name} end working for ${this.name} in ${employee._endWorking}\n`;
         } else {
             console.log("There is no such employee");
         }
@@ -41,34 +50,53 @@ function Company(name, owner, maxCount) {
         return _listEmployees;
     };
 
-    // this.getFormattedListOfEmployees = function() {
-    //     let showListEmployees = "";
-    //     for (let i in this._listEmployees) {
-    //         showListEmployees += `${name} -  works in ${companyName} ${timeInCompany} seconds \n`;
-    //     }
-    //     return showListEmployees;
-    // };
+    this.getFormattedListOfEmployees = function() {
+        let now = new Date();
+        let showListEmployees = "";
+        for (let key of _listEmployees) {
+            showListEmployees += `${key.name} -  works in ${this.name}  ${key._startWorking - now} seconds \n`;
+        }
+        return showListEmployees;
+    };
+
+    this.getHistory = function() {
+        console.log(_logs);
+    }
 }
 
-function Employee(name, primarySkill, age, salary) {
-    this.name = name;
-    this.primarySkill = primarySkill;
-    this.age = age;
-    this.salary = salary;
+function Employee(employee) {
+    this.name = employee.name;
+    this.primarySkill = employee.primarySkill;
+    this.age = employee.age;
+    this.salary = employee.salary;
+    let _startWorking,
+        _endWorking;
+
     this.getSalary = function() {
         return this.salary;
     };
+
     this.setSalary = function(newSalary) {
-        this.salary = newSalary;
+        if (newSalary > this.salary) {
+            this.salary = newSalary;
+        }
     };
 }
 
 let epam = new Company('epam', 'usa', 3);
 
-epam._listEmployees = [
-    { name: 'Anton', age: 23, salary: 200 },
-    { name: 'Anton1', age: 90, salary: 300 },
-    { name: 'Anton3', age: 23, salary: 900 }
-];
+let artem = new Employee({ name: "Artem", age: 15, salary: 1000, primarySkill: "UX" });
+let vova = new Employee({ name: "Vova", age: 16, salary: 2000, primarySkill: "BE" });
+let vasyl = new Employee({ name: "Vasyl", age: 25, salary: 1000, primarySkill: "FE" });
+let ivan = new Employee({ name: "Ivan", age: 35, salary: 5000, primarySkill: "FE" });
+let orest = new Employee({ name: "Orest", age: 29, salary: 300, primarySkill: "AT" });
+let anton = new Employee({ name: "Anton", age: 19, salary: 500, primarySkill: "Manager" });
 
-// console.log(epam.());
+epam.addNewEmployee(artem);
+epam.addNewEmployee(vova);
+epam.addNewEmployee(vasyl);
+epam.addNewEmployee(ivan);
+epam.addNewEmployee(orest);
+epam.addNewEmployee(anton);
+
+console.log(epam.getHistory());
