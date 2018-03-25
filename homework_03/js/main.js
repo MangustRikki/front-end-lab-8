@@ -22,7 +22,9 @@ function Company(name, owner, maxCount) {
                 _listEmployees.splice(this.findLowestSalary(), 1, employee);
             }
             employee._startWorking = new Date();
+            employee.hire(this.name);
             _logs += `${employee.name} start working for ${this.name} in ${employee._startWorking}\n`;
+            employee._logs += `${employee.name} is hired to ${this.name} in ${employee._startWorking}`;
         }
     };
 
@@ -32,6 +34,7 @@ function Company(name, owner, maxCount) {
             firedEmployee._endWorking = new Date();
             firedEmployee._workingTime += (firedEmployee._endWorking + firedEmployee._startWorking);
             firedEmployee._startWorking = null;
+            firedEmployee.fire();
             _logs += `${firedEmployee.name} end working for ${this.name} in ${employee._endWorking}\n`;
         } else {
             console.log("There is no such employee");
@@ -71,9 +74,12 @@ function Employee(employee) {
     this.primarySkill = employee.primarySkill;
     this.age = employee.age;
     this.salary = employee.salary;
+
     let _startWorking,
         _endWorking,
-        _workingTime;
+        _workingTime,
+        _company,
+        _logs;
 
     this.getSalary = function() {
         return this.salary;
@@ -90,6 +96,13 @@ function Employee(employee) {
         return _workingTime + (now - _startWorking);
     };
 
+    this.hire = function(company) {
+        _company = company;
+    };
+
+    this.fire = function() {
+        _company = "";
+    }
 
 }
 
