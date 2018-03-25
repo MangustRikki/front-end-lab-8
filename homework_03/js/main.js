@@ -102,6 +102,10 @@ function Employee(employee) {
 
     this.fire = function() {
         _company = "";
+    };
+
+    this.getHistory = function() {
+        console.log(_logs);
     }
 
 }
