@@ -34,8 +34,8 @@ function Company(name, owner, maxCount) {
             firedEmployee._endWorking = new Date();
             firedEmployee._workingTime += (firedEmployee._endWorking + firedEmployee._startWorking);
             firedEmployee._startWorking = null;
-            firedEmployee.fire();
-            _logs += `${firedEmployee.name} end working for ${this.name} in ${employee._endWorking}\n`;
+
+            _logs += `${firedEmployee.name} end working for ${this.name} in ${firedEmployee._endWorking}\n`;
         } else {
             console.log("There is no such employee");
         }
@@ -125,3 +125,5 @@ epam.addNewEmployee(vasyl);
 epam.addNewEmployee(ivan);
 epam.addNewEmployee(orest);
 epam.addNewEmployee(anton);
+
+epam.removeEmployee(2);
