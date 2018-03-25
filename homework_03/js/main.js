@@ -30,8 +30,10 @@ function Company(name, owner, maxCount) {
 
     this.removeEmployee = function(id) {
         if (id <= this.maxCount && id > 0) {
-            let firedEmployee = _listEmployees.splice(id, 1);
+            let firedEmployee = _listEmployees[id];
+            _listEmployees.splice(id, 1);
             firedEmployee._endWorking = new Date();
+            firedEmployee.fire();
             firedEmployee._workingTime += (firedEmployee._endWorking + firedEmployee._startWorking);
             firedEmployee._startWorking = null;
 
