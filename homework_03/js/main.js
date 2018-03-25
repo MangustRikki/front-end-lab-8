@@ -125,7 +125,3 @@ epam.addNewEmployee(vasyl);
 epam.addNewEmployee(ivan);
 epam.addNewEmployee(orest);
 epam.addNewEmployee(anton);
-
-console.log(epam.getFormattedListOfEmployees());
-
-console.log(orest.getWorkTimeInSeconds());
