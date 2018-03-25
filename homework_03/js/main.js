@@ -30,6 +30,8 @@ function Company(name, owner, maxCount) {
         if (id <= this.maxCount && id > 0) {
             let firedEmployee = _listEmployees.splice(id, 1);
             firedEmployee._endWorking = new Date();
+            firedEmployee._workingTime += (firedEmployee._endWorking + firedEmployee._startWorking);
+            firedEmployee._startWorking = null;
             _logs += `${firedEmployee.name} end working for ${this.name} in ${employee._endWorking}\n`;
         } else {
             console.log("There is no such employee");
@@ -54,7 +56,7 @@ function Company(name, owner, maxCount) {
         let now = new Date();
         let showListEmployees = "";
         for (let key of _listEmployees) {
-            showListEmployees += `${key.name} -  works in ${this.name}  ${key._startWorking - now} seconds \n`;
+            showListEmployees += `${key.name} -  works in ${this.name}  ${now - key._startWorking} seconds \n`;
         }
         return showListEmployees;
     };
@@ -70,7 +72,8 @@ function Employee(employee) {
     this.age = employee.age;
     this.salary = employee.salary;
     let _startWorking,
-        _endWorking;
+        _endWorking,
+        _workingTime;
 
     this.getSalary = function() {
         return this.salary;
@@ -81,6 +84,13 @@ function Employee(employee) {
             this.salary = newSalary;
         }
     };
+
+    this.getWorkTimeInSeconds = function() {
+        let now = new Date();
+        return _workingTime + (now - _startWorking);
+    };
+
+
 }
 
 let epam = new Company('epam', 'usa', 3);
@@ -99,4 +109,6 @@ epam.addNewEmployee(ivan);
 epam.addNewEmployee(orest);
 epam.addNewEmployee(anton);
 
-console.log(epam.getHistory());
+console.log(epam.getFormattedListOfEmployees());
+
+console.log(orest.getWorkTimeInSeconds());
