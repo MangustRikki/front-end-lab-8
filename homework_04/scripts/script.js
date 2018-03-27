@@ -1,3 +1,19 @@
+function assign(obj, ...arg) {
+    let newObj = obj;
+    for (let i = 1; i < arg.length; i++) {
+        let nextObj = arg[i];
+        let keysArr = Object.keys(nextObj);
+        for (let index = 0; index < keysArr.length; index++) {
+            let nextKey = keysArr[index];
+            let isCorrectProp = Object.getOwnPropertyDescriptor(nextObj, keysArr[index]);
+            if (isCorrectProp !== undefined) {
+                newObj[nextKey] = nextObj[nextKey];
+            }
+        }
+    }
+    return newObj;
+}
+
 function Warrior(obj) {
     this.name = obj.name;
     this._attack = obj.attack;
