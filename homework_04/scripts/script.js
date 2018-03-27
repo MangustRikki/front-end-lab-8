@@ -1,6 +1,6 @@
 function assign(obj, ...arg) {
     let newObj = obj;
-    for (let i = 1; i < arg.length; i++) {
+    for (let i = 0; i < arg.length; i++) {
         let nextObj = arg[i];
         let keysArr = Object.keys(nextObj);
         for (let index = 0; index < keysArr.length; index++) {
@@ -28,6 +28,8 @@ Warrior.prototype = {
     setTotalHitpoints: (newTotalHitpoints) => _totalHitpoints = newTotalHitpoints,
     getAttack: () => this._attack,
     setAttack: (newAttack) => this._attack = newAttack,
+    getIsBlock: () => this._isBlock,
+    setIsBlock: (bool) => this._isBlock = bool,
     fight: (rival) => {
         if (this !== rival && this.isAlive() && rival.isAlive()) {
             if (this.isEnrage) {
@@ -38,6 +40,8 @@ Warrior.prototype = {
 
             } else if (rival.isDefence) {
                 rival.isDefence = false;
+            } else if (this.getIsBlock) {
+                setIsBlock(false);
             } else {
                 rival.setHitpoints(rival.getHitpoints() - this.getAttack());
             }
@@ -74,9 +78,6 @@ Champion.prototype.defence = () => {
 Champion.prototype.winPrize = () => {
     this.setAttack(this.getAttack() + 1);
 };
-
-
-
 
 function Monster() {
     Warrior.apply(this, arguments);
