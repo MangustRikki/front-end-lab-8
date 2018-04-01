@@ -220,7 +220,7 @@ hunter.fight(beast);
 beast.getHitpoints(); // -> 60
 beast.fight(hunter);
 hunter.getHitpoints(); // -> 44
-…
+
 hunter.fight(beast);
 beast.isAlive(); // -> false
 hunter.getAttack(); // -> 11
