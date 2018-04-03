@@ -13,6 +13,7 @@ validateResponceBtn.addEventListener('click', validate);
 function getAnswer(e) {
     e.preventDefault();
     answerTable.innerHTML = '';
+    answerTitle.innerHTML = '';
     loaderWrap.style.display = 'block';
     const url = `https://ipapi.co/${ip.value}/json/`;
 
