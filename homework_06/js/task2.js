@@ -4,7 +4,7 @@ const ip = document.querySelector('.ip-input'),
       loaderWrap = document.querySelector('.loader-wrap'),
       answerTitle = document.querySelector('.answer-title'),
       answerTable = document.querySelector('.answer-table');
-      
+
 let answerJson;
 
 trackIpBtn.addEventListener('click', getAnswer);
@@ -12,6 +12,7 @@ validateResponceBtn.addEventListener('click', validate);
 
 function getAnswer(e) {
     e.preventDefault();
+    answerTable.innerHTML = '';
     loaderWrap.style.display = 'block';
     const url = `https://ipapi.co/${ip.value}/json/`;
 
