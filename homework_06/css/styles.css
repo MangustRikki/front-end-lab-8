@@ -1,0 +1,43 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrap {
+    height: 100%;
+    padding-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #bbb3b3;
+}
+
+form {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+input, button {
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #808080;
+}
+
+input {
+    padding-left: 20px;
+}
+
+button {
+    cursor: pointer;
+    background: #ee9696;
+}
+
+button:hover {
+    background: #a75454;
+}
+
