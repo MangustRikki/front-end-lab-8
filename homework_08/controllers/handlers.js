@@ -7,9 +7,9 @@ let storage = "../data/storage.json",
 const isExist = (someItems, dataBase) => {
   for (let item of dataBase) {
     if (
-      item.name === musician.name &&
-      item.band === musician.band &&
-      item.instrument === musician.instrument
+      item.name === storage.name &&
+      item.band === storage.band &&
+      item.instrument === storage.instrument
     ) {
       return true;
     }
@@ -18,7 +18,7 @@ const isExist = (someItems, dataBase) => {
 };
 
 const addData = item => {
-  fs.writeFile(itemPath, JSON.stringify(item), err => {
+  fs.writeFile(dataBasePath, JSON.stringify(item), err => {
     if (err) {
       return res.status(500);
     }
@@ -53,7 +53,7 @@ const addNew = (req, res) => {
 };
 
 const getAll = (req, res) => {
-  fs.readFile(dataPath, (err, data) => {
+  fs.readFile(dataBasePath, (err, data) => {
     const dataBase = JSON.parse(data);
 
     if (err) {
