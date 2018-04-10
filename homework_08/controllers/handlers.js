@@ -65,7 +65,7 @@ const getAll = (req, res) => {
 };
 
 const getById = (req, res) => {
-  fs.readFile(storage, (err, data) => {
+  fs.readFile(dataBasePath, (err, data) => {
     const dataBase = JSON.parse(data);
     let artist = dataBase.find(elem => elem.id === Number(req.params.id));
 
