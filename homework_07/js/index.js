@@ -16,13 +16,15 @@ $(document).ready(() => {
     for(let i = 0; i < fieldSize + 1; i++) {
         let stoneRow = $(`<div class='stone-row'></div>`);
         for(let k = 0; k < fieldSize + 1; k++) {
-            let stoneCell = $(`<div class='stone-cell'></div>`);
+            let stoneCell = $(`<div class='stone-cell stone'></div>`);
             stoneRow.append(stoneCell);
         }
         stoneTable.append(stoneRow);
     }
 
     $('.game-field').append(gridTable);
-    $('.game-field').append(stoneTable)
+    $('.game-field').append(stoneTable);
+
+
 
 });

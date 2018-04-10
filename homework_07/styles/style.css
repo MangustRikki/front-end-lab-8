@@ -19,10 +19,8 @@
   font-size: 24px;
 }
 
-
-.game-field {
-  position: relative;
-  height: 800px;
+.wrap {
+  justify-content: center;
 }
 
 .grid-table {
