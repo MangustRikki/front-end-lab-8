@@ -4,10 +4,10 @@ import "../styles/styles.css";
 
 createCalc();
 
-const operationButtons = document.querySelectorAll('operationButton'),
-    result = document.querySelector('result'),
-    numOne = document.querySelector('numOne'),
-    numTwo = document.querySelector('numTwo');
+const operationButtons = document.querySelectorAll('.operationButton'),
+    result = document.querySelector('.result'),
+    numOne = document.querySelector('.numOne'),
+    numTwo = document.querySelector('.numTwo');
     console.log(operationButtons);
 
     for( let i of operationButtons) {

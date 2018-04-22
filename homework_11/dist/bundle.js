@@ -71,10 +71,26 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__interface_module__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__calculating_module__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__styles_styles_css__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__styles_styles_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__styles_styles_css__);
+
 
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__interface_module__["a" /* default */])();
+
+const operationButtons = document.querySelectorAll('.operationButton'),
+      result = document.querySelector('.result'),
+      numOne = document.querySelector('.numOne'),
+      numTwo = document.querySelector('.numTwo');
+console.log(operationButtons);
+
+for (let i of operationButtons) {
+    i.addEventListener('click', e => {
+        console.log(e.target.textContent);
+        result.value = Object(__WEBPACK_IMPORTED_MODULE_1__calculating_module__["a" /* default */])(numOne, numTwo, e.target.textContent);
+    });
+}
 
 /***/ }),
 /* 1 */
@@ -93,7 +109,7 @@ const body = document.querySelector('body'),
 
 /* harmony default export */ __webpack_exports__["a"] = (() => {
     operationType.forEach(elem => {
-        let button = document.createElement('button');
+        let button = creatWithClass('button', 'operationButton');
         button.innerHTML = elem;
         OperationButtonSet.appendChild(button);
     });
@@ -112,7 +128,7 @@ function creatWithClass(elem, className) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony default export */ var _unused_webpack_default_export = ((num1, num2, operationType) => {
+/* harmony default export */ __webpack_exports__["a"] = ((num1, num2, operationType) => {
     let output;
     switch (operationType) {
         case "+":
@@ -134,6 +150,12 @@ function creatWithClass(elem, className) {
     }
     return output;
 });
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
