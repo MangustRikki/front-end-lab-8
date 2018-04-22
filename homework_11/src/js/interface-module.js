@@ -10,7 +10,7 @@ const body = document.querySelector('body'),
 
 export default () => {
     operationType.forEach(elem => {
-        let button = document.createElement('button');
+        let button = creatWithClass('button', 'operationButton');
         button.innerHTML = elem;
         OperationButtonSet.appendChild(button);
     });
