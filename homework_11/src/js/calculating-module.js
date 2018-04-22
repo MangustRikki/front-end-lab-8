@@ -2,7 +2,7 @@ export default (num1, num2, operationType) => {
     let output;
     switch (operationType) {
         case "+":
-            output = num1 + num2;
+            output = +num1 + +num2;
             break;
         case "-":
             output = num1 - num2;
@@ -18,5 +18,6 @@ export default (num1, num2, operationType) => {
             };
             break;
     }
+    console.log(num1);
     return output;
 };

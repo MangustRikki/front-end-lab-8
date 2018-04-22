@@ -83,12 +83,10 @@ const operationButtons = document.querySelectorAll('.operationButton'),
       result = document.querySelector('.result'),
       numOne = document.querySelector('.numOne'),
       numTwo = document.querySelector('.numTwo');
-console.log(operationButtons);
 
 for (let i of operationButtons) {
     i.addEventListener('click', e => {
-        console.log(e.target.textContent);
-        result.value = Object(__WEBPACK_IMPORTED_MODULE_1__calculating_module__["a" /* default */])(numOne, numTwo, e.target.textContent);
+        result.value = Object(__WEBPACK_IMPORTED_MODULE_1__calculating_module__["a" /* default */])(numOne.value, numTwo.value, e.target.textContent);
     });
 }
 
@@ -132,7 +130,7 @@ function creatWithClass(elem, className) {
     let output;
     switch (operationType) {
         case "+":
-            output = num1 + num2;
+            output = +num1 + +num2;
             break;
         case "-":
             output = num1 - num2;
@@ -148,6 +146,7 @@ function creatWithClass(elem, className) {
             };
             break;
     }
+    console.log(num1);
     return output;
 });
 
