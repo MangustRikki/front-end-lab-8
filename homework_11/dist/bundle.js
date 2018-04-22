@@ -128,27 +128,34 @@ function creatWithClass(elem, className) {
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ((num1, num2, operationType) => {
     let output;
-    switch (operationType) {
-        case "+":
-            output = +num1 + +num2;
-            break;
-        case "-":
-            output = num1 - num2;
-            break;
-        case "*":
-            output = num1 * num2;
-            break;
-        case "/":
-            if (num2 === 0) {
-                output = "Error. Division by zero is imposible";
-            } else {
-                output = num1 / num2;
-            };
-            break;
+    if (!isNumeric(num1) || !isNumeric(num2)) {
+        output = "U type not numbers!";
+    } else {
+        switch (operationType) {
+            case "+":
+                output = +num1 + +num2;
+                break;
+            case "-":
+                output = num1 - num2;
+                break;
+            case "*":
+                output = num1 * num2;
+                break;
+            case "/":
+                if (+num2 === 0) {
+                    output = "Error. Division by zero";
+                } else {
+                    output = num1 / num2;
+                };
+                break;
+        }
     }
-    console.log(num1);
     return output;
 });
+
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
 
 /***/ }),
 /* 3 */

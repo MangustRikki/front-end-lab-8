@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.calcWrap {
+    width: 15%;
+    margin: 50px auto 0;
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px double grey; 
+}
+
+input,
+.operationButtonSet {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+input {
+    border: 1px solid darkgreen;
+}
+
+input:last-child {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.operationButtonSet {
+    display: flex;
+    justify-content: space-between;
+}
+
+.operationButton {
+    width: 20%;
+    border: 1px solid darkgreen;
+    background: darkseagreen;
+}
