@@ -101,7 +101,35 @@ const control = {
     },
     setCurrentPersonScore: function (value) {
         this.getCurrentPerson().score = value;
+    },
+    sortBy: function(arr, sortBy, direction) {
+            if(direction === "toUp") {
+                arr.sort( (a, b) => {
+                    if (a[sortBy] > b[sortBy]) {
+                        return 1;
+                      }
+                      if (a[sortBy] < b[sortBy]) {
+                        return -1;
+                      }
+                      return 0;
+                })
+            }
+                else if(direction === 'toLower'){
+                    arr.sort( (a, b) => {
+                        if (a[sortBy] < b[sortBy]) {
+                            return 1;
+                          }
+                          if (a[sortBy] > b[sortBy]) {
+                            return -1;
+                          }
+                          return 0;
+                    });
+            }
+            listView.render();
+                scoresView.render();
+            console.log(arr);
     }
+    
 };
 
 const listView = {
@@ -171,6 +199,7 @@ const scoresView = {
 const sortView = {
     init: function() {
         this.render();
+        this.handleClicks();
     },
     render: function() {
         let  controls = `<li class="sortByName">Name</li>
@@ -180,15 +209,26 @@ const sortView = {
     handleClicks: function() {
         const sortByName = document.querySelector('.sortByName'),
             sortByScores = document.querySelector('.sortByScores');
+        let direction = 'toUp';
 
             sortByName.addEventListener('click', (e) => {
-                control.sortByName();
-                control.init();
+                control.sortBy(model.allPersons, 'name', direction);
+                if(direction === "toUp") {
+                    direction = "toLower";
+                }
+                else {
+                    direction = "toUp";
+                }
             });
 
             sortByScores.addEventListener('click', (e) => {
-                control.sortByScores();
-                control.init();
+                control.sortBy(model.allPersons, 'score', direction);
+                if(direction === "toUp") {
+                    direction = "toLower";
+                }
+                else {
+                    direction = "toUp";
+                }
             });
     }
 };
