@@ -125,16 +125,16 @@ const control = {
                           return 0;
                     });
             }
-            listView.render();
-                scoresView.render();
-            console.log(arr);
+            listView.init();
+            scoresView.init();
+            console.log(model.allPersons);
     }
     
 };
 
 const listView = {
     init: function () {
-        $(".names").append(this.render());
+        $(".names").html(this.render());
         this.handleClicks();
     },
     render: function () {
@@ -157,7 +157,7 @@ const listView = {
 
 const scoresView = {
     init: function () {
-        $(".scores").append(this.render());
+        $(".scores").html(this.render());
         this.handleClicks();
     },
     render: function () {
@@ -230,6 +230,7 @@ const sortView = {
                     direction = "toUp";
                 }
             });
+            
     }
 };
 
