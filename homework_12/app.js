@@ -182,12 +182,12 @@ const sortView = {
             sortByScores = document.querySelector('.sortByScores');
 
             sortByName.addEventListener('click', (e) => {
-                controls.sortByName();
+                control.sortByName();
                 control.init();
             });
 
             sortByScores.addEventListener('click', (e) => {
-                controls.sortByScores();
+                control.sortByScores();
                 control.init();
             });
     }
