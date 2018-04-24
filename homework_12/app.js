@@ -80,7 +80,7 @@ const model = {
 
 const control = {
     init: function () {
-        controlsView.init();
+        sortView.init();
         listView.init();
         scoresView.init();
     },
@@ -165,13 +165,10 @@ const scoresView = {
                 }
             });
         })
-    },
-    checkValue: function (value) {
-
     }
 };
 
-const controlsView = {
+const sortView = {
     init: function() {
         this.render();
     },
@@ -181,7 +178,18 @@ const controlsView = {
         $('.sort-controls').html(controls);
     },
     handleClicks: function() {
+        const sortByName = document.querySelector('.sortByName'),
+            sortByScores = document.querySelector('.sortByScores');
 
+            sortByName.addEventListener('click', (e) => {
+                controls.sortByName();
+                control.init();
+            });
+
+            sortByScores.addEventListener('click', (e) => {
+                controls.sortByScores();
+                control.init();
+            });
     }
 };
 
@@ -199,10 +207,4 @@ const profileView = {
     }
 };
 
-
-
 control.init();
-// control.setCurrentPerson(2);
-// console.log(model.currentPerson);
-// control.setCurrentPerson(3);
-// console.log(model.currentPerson);
