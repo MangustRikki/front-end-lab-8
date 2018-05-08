@@ -6,8 +6,11 @@ export default class Color extends Component {
     }
 
     render() {
+        let backgroundStyle = {
+            background: this.props.color.color
+        }
         return(
-            <div className="color-card" style="background: {this.props.color.color}" id={this.props.index}>
+            <div className="color-card" style={backgroundStyle} id={this.props.index}>
                 <button><i className="material-icons">add</i><span>Add</span></button>
             </div>
         )
