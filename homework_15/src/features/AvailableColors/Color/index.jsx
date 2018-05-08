@@ -12,7 +12,7 @@ export default class Color extends Component {
         }
         return(
             <div className="color-card" style={backgroundStyle} id={this.props.index}>
-                <button><i className="material-icons">add</i><span>Add</span></button>
+                <button className="addButton"><i className="material-icons">add</i><span>Add</span></button>
             </div>
         )
     }
