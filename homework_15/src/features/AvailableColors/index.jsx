@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import './styles';
 import Color from './Color';
+import './styles';
+
 
 export default class AvailableColor extends Component {
     render() {
