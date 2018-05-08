@@ -127,9 +127,7 @@ const control = {
             }
             listView.init();
             scoresView.init();
-            console.log(model.allPersons);
     }
-    
 };
 
 const listView = {
@@ -209,28 +207,29 @@ const sortView = {
     handleClicks: function() {
         const sortByName = document.querySelector('.sortByName'),
             sortByScores = document.querySelector('.sortByScores');
-        let direction = 'toUp';
+        let directionName = 'toUp',
+            directionScore = 'toLower';
 
             sortByName.addEventListener('click', (e) => {
-                control.sortBy(model.allPersons, 'name', direction);
-                if(direction === "toUp") {
-                    direction = "toLower";
+                control.sortBy(model.allPersons, 'name', directionName);
+                if(directionName === "toUp") {
+                    $('.sort-controls li:before').css('border-color', 'blue');
+                    directionName = "toLower";
                 }
                 else {
-                    direction = "toUp";
+                    directionName = "toUp";
                 }
             });
 
             sortByScores.addEventListener('click', (e) => {
-                control.sortBy(model.allPersons, 'score', direction);
-                if(direction === "toUp") {
-                    direction = "toLower";
+                control.sortBy(model.allPersons, 'score', directionScore);
+                if(directionScore === "toUp") {
+                    directionScore = "toLower";
                 }
                 else {
-                    direction = "toUp";
+                    directionScore = "toUp";
                 }
             });
-            
     }
 };
 
